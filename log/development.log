@@ -2409,3 +2409,426 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 14ms (Views: 6.4ms | ActiveRecord: 1.9ms (3 queries, 0 cached) | GC: 0.8ms)
 
 
+Started GET "/articles" for ::1 at 2026-04-28 12:40:16 +0900
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:10
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) ORDER BY "articles"."created_at" DESC /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:13
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  Rendered articles/index.html.erb within layouts/application (Duration: 12.1ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | GC: 0.3ms)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.7ms (10 queries, 2 cached) | GC: 0.4ms)
+
+
+Started GET "/articles/3/edit" for ::1 at 2026-04-28 12:40:17 +0900
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:53:in `authorize_user!'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 3.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 4.4ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/3" for ::1 at 2026-04-28 12:40:19 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:10
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:17
+  Rendered articles/show.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/3/edit" for ::1 at 2026-04-28 12:41:22 +0900
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:53:in `authorize_user!'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:25
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:26
+  Rendered articles/_form.html.erb (Duration: 9.5ms | GC: 2.6ms)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 9.9ms | GC: 2.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | GC: 2.9ms)
+Completed 200 OK in 23ms (Views: 12.6ms | ActiveRecord: 1.4ms (5 queries, 0 cached) | GC: 2.9ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiIwN2VubWZoZ2UxenNwanFyeHV5NGx2YTF3eWkzIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiSU1HXzExNTIuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnSU1HXzExNTIuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDQtMjhUMDM6NDM6MTQuODIxWiIsInB1ciI6ImJsb2Jfa2V5In19--e5b34d0ef635e5dd0b0d8601fa0814725ef5cd38/IMG_1152.jpg" for ::1 at 2026-04-28 12:41:22 +0900
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"IMG_1152"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/articles/3" for ::1 at 2026-04-28 12:41:55 +0900
+Processing by ArticlesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article"=>{"title"=>"テスト記事3", "body"=>"画像つき", "published_at"=>""}, "commit"=>"Update Article", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='update',application='RailsBlog',controller='articles'*/[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='update',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='update',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:53:in `authorize_user!'
+Redirected to http://localhost:3000/articles/3
+↳ app/controllers/articles_controller.rb:35:in `update'
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/3" for ::1 at 2026-04-28 12:41:55 +0900
+Processing by ArticlesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:10
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:17
+  Rendered articles/show.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | GC: 0.1ms)
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/articles" for ::1 at 2026-04-28 12:46:10 +0900
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:10
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) ORDER BY "articles"."created_at" DESC /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  Rendered articles/index.html.erb within layouts/application (Duration: 13.7ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | GC: 0.2ms)
+Completed 200 OK in 27ms (Views: 14.5ms | ActiveRecord: 1.4ms (10 queries, 2 cached) | GC: 0.2ms)
+
+
+Started GET "/articles/2" for ::1 at 2026-04-28 12:46:10 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 2 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:17
+  Rendered articles/show.html.erb within layouts/application (Duration: 6.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/3" for ::1 at 2026-04-28 12:46:11 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:10
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:17
+  Rendered articles/show.html.erb within layouts/application (Duration: 4.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2026-04-28 12:46:12 +0900
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:10
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) ORDER BY "articles"."created_at" DESC /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:13
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  Rendered articles/index.html.erb within layouts/application (Duration: 21.9ms | GC: 4.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | GC: 4.7ms)
+Completed 200 OK in 30ms (Views: 21.5ms | ActiveRecord: 2.5ms (10 queries, 2 cached) | GC: 4.7ms)
+
+
+Started GET "/articles/3/edit" for ::1 at 2026-04-28 12:46:13 +0900
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:53:in `authorize_user!'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:25
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:26
+  Rendered articles/_form.html.erb (Duration: 5.8ms | GC: 0.0ms)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 6.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 7.8ms | ActiveRecord: 0.9ms (5 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/articles" for ::1 at 2026-04-28 12:46:16 +0900
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:10
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) ORDER BY "articles"."created_at" DESC /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  Rendered articles/index.html.erb within layouts/application (Duration: 18.6ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | GC: 0.3ms)
+Completed 200 OK in 23ms (Views: 18.5ms | ActiveRecord: 1.5ms (10 queries, 2 cached) | GC: 0.3ms)
+
+
+Started GET "/articles/3/edit" for ::1 at 2026-04-28 12:46:18 +0900
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:53:in `authorize_user!'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:25
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:26
+  Rendered articles/_form.html.erb (Duration: 7.7ms | GC: 0.4ms)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 8.0ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | GC: 0.4ms)
+Completed 200 OK in 18ms (Views: 9.3ms | ActiveRecord: 0.9ms (5 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/articles/3/edit" for ::1 at 2026-04-28 12:46:21 +0900
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:53:in `authorize_user!'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/edit.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:25
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='edit',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/_form.html.erb:26
+  Rendered articles/_form.html.erb (Duration: 9.4ms | GC: 0.0ms)
+  Rendered articles/edit.html.erb within layouts/application (Duration: 9.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 11.0ms | ActiveRecord: 0.7ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles/3" for ::1 at 2026-04-28 12:46:23 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:17
+  Rendered articles/show.html.erb within layouts/application (Duration: 5.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2026-04-28 12:46:24 +0900
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:7:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:10
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE ("articles"."published_at" IS NOT NULL OR "articles"."user_id" = 1 AND "articles"."published_at" IS NULL) ORDER BY "articles"."created_at" DESC /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  ↳ app/views/articles/index.html.erb:23
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/index.html.erb:26
+  Rendered articles/index.html.erb within layouts/application (Duration: 20.6ms | GC: 3.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | GC: 3.6ms)
+Completed 200 OK in 30ms (Views: 20.8ms | ActiveRecord: 1.7ms (10 queries, 2 cached) | GC: 3.6ms)
+
+
+Started GET "/articles/3" for ::1 at 2026-04-28 12:46:26 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:10
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:17
+  Rendered articles/show.html.erb within layouts/application (Duration: 5.1ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | GC: 0.8ms)
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/articles/3" for ::1 at 2026-04-28 12:47:50 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:10
+  Rendered articles/show.html.erb within layouts/application (Duration: 4.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `article' for an instance of #<Class:0x000000012351c1c8>)
+Caused by: NameError (undefined local variable or method `article' for an instance of #<Class:0x000000012351c1c8>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `article' for an instance of #<Class:0x000000012351c1c8>):
+    14:   </div>
+    15: 
+    16:   <% if article.image.attached? %>
+    17:     <%= image_tag article.image, class: "w-40 h-40 object-cover rounded mb-2" %>
+    18:   <% end %>
+    19: 
+    20:   <% if user_signed_in? && @article.user == current_user %>
+  
+app/views/articles/show.html.erb:17
+
+Information for cause: NameError (undefined local variable or method `article' for an instance of #<Class:0x000000012351c1c8>):
+  
+app/views/articles/show.html.erb:17
+Started GET "/articles/3" for ::1 at 2026-04-28 12:48:10 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = 3 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/controllers/articles_controller.rb:49:in `set_article'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Article' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:17
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='RailsBlog',controller='articles'*/[0m
+  ↳ app/views/articles/show.html.erb:21
+  Rendered articles/show.html.erb within layouts/application (Duration: 15.3ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | GC: 2.1ms)
+Completed 200 OK in 28ms (Views: 18.6ms | ActiveRecord: 1.7ms (5 queries, 0 cached) | GC: 5.1ms)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--a5632f03237e96201f6c6b4111db40d882c12513/IMG_1152.jpg" for ::1 at 2026-04-28 12:48:10 +0900
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--a5632f03237e96201f6c6b4111db40d882c12513", "filename"=>"IMG_1152"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='RailsBlog',controller='redirect'*/[0m
+[36m  Disk Storage (0.2ms) [0m[34mGenerated URL for file at key: 07enmfhge1zspjqrxuy4lva1wyi3 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiIwN2VubWZoZ2UxenNwanFyeHV5NGx2YTF3eWkzIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiSU1HXzExNTIuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnSU1HXzExNTIuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDQtMjhUMDM6NTM6MTAuOTgzWiIsInB1ciI6ImJsb2Jfa2V5In19--2f59c13bf707c4c354a64f1db904b8cadb7df72e/IMG_1152.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiIwN2VubWZoZ2UxenNwanFyeHV5NGx2YTF3eWkzIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiSU1HXzExNTIuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnSU1HXzExNTIuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDQtMjhUMDM6NTM6MTAuOTgzWiIsInB1ciI6ImJsb2Jfa2V5In19--2f59c13bf707c4c354a64f1db904b8cadb7df72e/IMG_1152.jpg
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiIwN2VubWZoZ2UxenNwanFyeHV5NGx2YTF3eWkzIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiSU1HXzExNTIuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnSU1HXzExNTIuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDQtMjhUMDM6NTM6MTAuOTgzWiIsInB1ciI6ImJsb2Jfa2V5In19--2f59c13bf707c4c354a64f1db904b8cadb7df72e/IMG_1152.jpg" for ::1 at 2026-04-28 12:48:10 +0900
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"IMG_1152"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+

@@ -21,6 +21,10 @@
 
   <div>
     <%= f.label :image, "画像", class: "block font-medium mb-1" %>
+    <% if article.image.attached? %>
+      <%= image_tag article.image, class: "w-40 h-40 object-cover rounded mb-2" %>
+      <p class="text-sm text-gray-500 mb-1">新しい画像を選択すると置き換えられます</p>
+    <% end %>
     <%= f.file_field :image, class: "border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" %>
   </div>
 

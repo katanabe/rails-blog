@@ -13,6 +13,10 @@
     <%= simple_format @article.body %>
   </div>
 
+  <% if @article.image.attached? %>
+    <%= image_tag @article.image, class: "w-40 h-40 object-cover rounded mb-2" %>
+  <% end %>
+
   <% if user_signed_in? && @article.user == current_user %>
     <div class="flex gap-4">
       <%= link_to "編集", edit_article_path(@article), class: "bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600" %>

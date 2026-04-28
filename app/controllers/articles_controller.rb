@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
   before_action :authorize_user!, only: [ :edit, :update, :destroy ]
 
   def index
-    @articles = Article.published
+    @articles = if current_user
+                  Article.published.or(current_user.articles.draft).order(created_at: :desc)
+                else
+                  Article.published.order(created_at: :desc)
+                end
   end
 
   def show

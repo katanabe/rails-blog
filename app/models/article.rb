@@ -3,5 +3,6 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
 
-  scope :published, -> { where.not(published_at: nil).order(published_at: :desc) }
+  scope :published, -> { where.not(published_at: nil) }
+  scope :draft, -> { where(published_at: nil) }
 end

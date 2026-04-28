@@ -20,6 +20,11 @@
   </div>
 
   <div>
+    <%= f.label :image, "画像", class: "block font-medium mb-1" %>
+    <%= f.file_field :image, class: "border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" %>
+  </div>
+
+  <div>
     <%= f.label :published_at, "公開日時（空欄で下書き）", class: "block font-medium mb-1" %>
     <%= f.datetime_local_field :published_at, class: "border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" %>
   </div>

@@ -10,16 +10,21 @@
     <p class="text-gray-500">まだ記事がありません。</p>
   <% else %>
     <% @articles.each do |article| %>
-      <div class="border rounded-lg p-6 mb-4 shadow-sm">
-        <h2 class="text-xl font-semibold mb-2 flex items-center gap-2">
-          <%= link_to article.title, article_path(article), class: "hover:underline" %>
-          <% if article.published_at.nil? %>
-            <span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full">下書き</span>
-          <% end %>
-        </h2>
-        <p class="text-gray-500 text-sm"><%= article.published_at&.strftime("%Y年%m月%d日") %></p>
-        <p class="text-gray-500 text-sm">by <%= article.user.email %></p>
-        <p class="mt-2 text-gray-700"><%= truncate(article.body, length: 100) %></p>
+      <div class="flex border rounded-lg p-6 mb-4 shadow-sm">
+        <div class="flex-1 flex flex-col">
+            <h2 class="text-xl font-semibold mb-2 flex items-center gap-2">
+            <%= link_to article.title, article_path(article), class: "hover:underline" %>
+            <% if article.published_at.nil? %>
+                <span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full">下書き</span>
+            <% end %>
+            </h2>
+            <p class="text-gray-500 text-sm"><%= article.published_at&.strftime("%Y年%m月%d日") %></p>
+            <p class="text-gray-500 text-sm">by <%= article.user.email %></p>
+            <p class="mt-2 text-gray-700"><%= truncate(article.body, length: 100) %></p>
+        </div>
+        <% if article.image.attached? %>
+            <%= image_tag article.image, class: "rounded-lg w-[120px] h-[120px] object-cover" %>
+        <% end %>
       </div>
     <% end %>
   <% end %>

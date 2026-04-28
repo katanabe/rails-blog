@@ -1,0 +1,7 @@
+<div class="max-w-3xl mx-auto px-4 py-8">
+  <h1 class="text-2xl font-bold mb-6">新しい記事を書く</h1>
+  <%= render "form", article: @article %>
+  <div class="mt-4">
+    <%= link_to "← 一覧に戻る", articles_path, class: "text-blue-600 hover:underline" %>
+  </div>
+</div>

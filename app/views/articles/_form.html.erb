@@ -1,0 +1,30 @@
+<%= form_with model: article, class: "space-y-4" do |f| %>
+  <% if article.errors.any? %>
+    <div class="bg-red-100 text-red-700 px-4 py-2 rounded">
+      <ul>
+        <% article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title, "タイトル", class: "block font-medium mb-1" %>
+    <%= f.text_field :title, class: "w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" %>
+  </div>
+
+  <div>
+    <%= f.label :body, "本文", class: "block font-medium mb-1" %>
+    <%= f.text_area :body, rows: 10, class: "w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" %>
+  </div>
+
+  <div>
+    <%= f.label :published_at, "公開日時（空欄で下書き）", class: "block font-medium mb-1" %>
+    <%= f.datetime_local_field :published_at, class: "border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" %>
+  </div>
+
+  <div>
+    <%= f.submit class: "bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 cursor-pointer" %>
+  </div>
+<% end %>

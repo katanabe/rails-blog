@@ -1,0 +1,25 @@
+<div class="max-w-3xl mx-auto px-4 py-8">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold">ブログ記事一覧</h1>
+    <% if user_signed_in? %>
+      <%= link_to "新しい記事を書く", new_article_path, class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" %>
+    <% end %>
+  </div>
+
+  <% if @articles.empty? %>
+    <p class="text-gray-500">まだ記事がありません。</p>
+  <% else %>
+    <% @articles.each do |article| %>
+      <div class="border rounded-lg p-6 mb-4 shadow-sm">
+        <h2 class="text-xl font-semibold mb-2">
+          <%= link_to article.title, article_path(article), class: "hover:underline" %>
+        </h2>
+        <p class="text-gray-500 text-sm">
+          <%= article.published_at.strftime("%Y年%m月%d日") %>
+          by <%= article.user.email %>
+        </p>
+        <p class="mt-2 text-gray-700"><%= truncate(article.body, length: 100) %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

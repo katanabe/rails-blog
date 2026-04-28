@@ -1,0 +1,28 @@
+<div class="max-w-3xl mx-auto px-4 py-8">
+  <% if notice %>
+    <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-4"><%= notice %></div>
+  <% end %>
+
+  <h1 class="text-3xl font-bold mb-2"><%= @article.title %></h1>
+  <p class="text-gray-500 text-sm mb-6">
+    <%= @article.published_at&.strftime("%Y年%m月%d日") %>
+    by <%= @article.user.email %>
+  </p>
+
+  <div class="prose max-w-none mb-8">
+    <%= simple_format @article.body %>
+  </div>
+
+  <% if user_signed_in? && @article.user == current_user %>
+    <div class="flex gap-4">
+      <%= link_to "編集", edit_article_path(@article), class: "bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600" %>
+      <%= button_to "削除", article_path(@article), method: :delete,
+          data: { turbo_confirm: "本当に削除しますか？" },
+          class: "bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700" %>
+    </div>
+  <% end %>
+
+  <div class="mt-6">
+    <%= link_to "← 一覧に戻る", articles_path, class: "text-blue-600 hover:underline" %>
+  </div>
+</div>

@@ -26,3 +26,4 @@
 
 # APM dependencies
 apm_modules/
+.claude/settings.local.json

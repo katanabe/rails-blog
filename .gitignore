@@ -22,3 +22,7 @@
 !/tmp/storage/.keep
 
 *.sqlite3
+
+
+# APM dependencies
+apm_modules/

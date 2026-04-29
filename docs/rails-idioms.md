@@ -44,4 +44,10 @@
 
 <!-- 新しいエントリは下に追記。古い順に並べる。 -->
 
-_(まだエントリなし。Rails / Hotwire / Devise / Active Storage の規約に触れる作業をしたときに追加していく。)_
+### `devise-jwt` は CORS で `expose: ["Authorization"]` が必須
+
+- **記録日:** 2026-04-29 / Rails 8.1 / devise-jwt 0.13.0 / rack-cors 3.0.0
+- **遭遇箇所:** `config/initializers/cors.rb`
+- **規約:** `devise-jwt` はログイン成功時にレスポンスの `Authorization: Bearer <token>` ヘッダで JWT を返す。CORS 越しでこれを React 側 JS から `response.headers.get("Authorization")` で読むには、`rack-cors` の `expose` に `"Authorization"` を**明示する必要がある**。
+- **背景:** Fetch / XHR の仕様上、ブラウザは「[CORS-safelisted response header](https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_response_header)」(`Cache-Control`・`Content-Language`・`Content-Length`・`Content-Type`・`Expires`・`Last-Modified`・`Pragma`)以外のヘッダを **デフォルトで JS に晒さない**。`Authorization` は安全リスト外。`Access-Control-Expose-Headers: Authorization` を返すことでブラウザが当該ヘッダを `response.headers` 経由で読めるようになる。`headers: :any` は **リクエスト** 側ヘッダの許可なので向きが違う。両方向の設定が必要、という非対称性に注意。
+- **検証手段:** ログインの fetch を投げて `response.headers.get("Authorization")` を `console.log`。`null` なら expose 不足。サーバ側で `curl -i -X POST http://localhost:3000/login ...` の生レスポンスに `Access-Control-Expose-Headers: Authorization` があるかでも確認可能。

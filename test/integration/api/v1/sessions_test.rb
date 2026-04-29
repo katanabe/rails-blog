@@ -63,5 +63,4 @@ class Api::V1::SessionsTest < ActionDispatch::IntegrationTest
     body = JSON.parse(response.body)
     assert_includes body["errors"]["email"], "has already been taken"
   end
-
 end

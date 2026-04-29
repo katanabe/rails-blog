@@ -5,33 +5,31 @@ class Api::V1::ArticlesController < ApplicationController
   before_action :authorize_user!, only: [ :update, :destroy ]
 
   def index
-    articles =
+    @articles =
       if current_user
         Article.published.or(current_user.articles.draft).order(created_at: :desc)
       else
         Article.published.order(created_at: :desc)
       end
-    render json: articles
   end
 
   def show
-    render json: @article
   end
 
   def create
-    article = current_user.articles.build(article_params)
-    if article.save
-      render json: article, status: :created
+    @article = current_user.articles.build(article_params)
+    if @article.save
+      render :show, status: :created
     else
-      render json: { errors: article.errors }, status: :unprocessable_entity
+      render json: { errors: @article.errors }, status: :unprocessable_entity
     end
   end
 
   def update
     if @article.update(article_params)
-      render json: @article, status: :updated
+      render :show
     else
-      render json: { errors: article.errors }, status: :unprocessable_entity
+      render json: { errors: @article.errors }, status: :unprocessable_entity
     end
   end
 

@@ -11,3 +11,9 @@ two:
   body: MyText
   published_at: 2026-04-27 21:30:25
   user: two
+
+draft_one:
+  title: "下書き"
+  body: "未公開"
+  published_at: ~ # ← nil のまま
+  user: one

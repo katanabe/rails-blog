@@ -13,3 +13,12 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+class ActionDispatch::IntegrationTest
+  def login_as(user, password = "password")
+    post "/api/v1/login",
+          params: { user: { email: user.email, password: password } }.to_json,
+          headers: { "Content-Type" => "application/json", "Accept" => "application/json" }
+    response.headers["Authorization"]
+  end
+end

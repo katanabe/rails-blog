@@ -20,6 +20,7 @@ gem "tailwindcss-rails"
 gem "jbuilder"
 gem "inertia_rails"
 gem "vite_ruby"
+gem "vite_rails"
 
 gem "devise"
 gem "devise-jwt"

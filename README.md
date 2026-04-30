@@ -1,24 +1,28 @@
-# README
+# Rails Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails 8.1 + Inertia.js + React 19 で構築した学習用ブログアプリ。
 
-Things you may want to cover:
+## スタック
 
-* Ruby version
+- Ruby 3.3 / Rails 8.1
+- Inertia.js + React 19 + TypeScript (vite_ruby)
+- Tailwind CSS v4
+- SQLite (Solid Cache / Queue / Cable)
+- Devise 認証
 
-* System dependencies
+## セットアップ
 
-* Configuration
+```bash
+bin/setup
+bin/dev
+```
 
-* Database creation
+`http://localhost:3000` にアクセス。
 
-* Database initialization
+## テスト
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+bin/rails test
+bin/rails test:system
+bin/ci  # rubocop + audit + brakeman + test 一式
+```

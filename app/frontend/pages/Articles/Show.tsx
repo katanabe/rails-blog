@@ -1,18 +1,8 @@
 import { Link, router } from "@inertiajs/react";
+import { Article, SharedProps } from "../../types";
 
-type Article = {
-  id: number;
-  title: string;
-  body: string;
-  published_at: string | null;
-  image_url: string | null;
-  user_id: number;
-};
-
-type PageProps = {
+type PageProps = SharedProps & {
   article: Article;
-  auth: { user: { id: number; email: string } | null };
-  flash: { notice: string | null; alert: string | null };
 };
 
 export default function Show({ article, auth, flash }: PageProps) {
